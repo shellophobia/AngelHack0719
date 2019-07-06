@@ -1,0 +1,124 @@
+.pod {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  background: #ccc;
+  box-shadow: 1px 2px 3px #aaa;
+  animation: pod-float 5s infinite;
+  animation-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.pod1 {
+  top: 20px;
+  left: 50%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  animation-delay: 1s;
+}
+
+.pod2 {
+  top: 100px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.pod3 {
+  top: 110px;
+  left: 37%;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  animation-delay: 2s;
+}
+
+.pod4 {
+  top: 220px;
+  left: 70%;
+  animation-delay: 0s;
+}
+
+.pod5 {
+  top: 200px;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  animation-delay: 2s;
+}
+
+.pod6 {
+  top: 250px;
+  left: 28%;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  animation-delay: 2s;
+}
+
+.pod7 {
+  top: 20px;
+  left: 75%;
+  animation-delay: 0s;
+}
+
+.pod8 {
+  top: 220px;
+  left: 2%;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  animation-delay: 2s;
+}
+
+.pod9 {
+  top: 320px;
+  left: 90%;
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  animation-delay: 2s;
+}
+
+.pod10 {
+  top: 320px;
+  left: 40%;
+  animation-delay: 2s;
+}
+
+@keyframes pod-float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.chatbox_wrapper {
+  height: 300px;
+  width: 500px;
+  overflow: scroll;
+  opacity: 1;
+  z-index: 3;
+  position: absolute;
+  background: #3a3a3a;
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+}
