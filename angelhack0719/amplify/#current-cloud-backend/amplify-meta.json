@@ -1,0 +1,87 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "angelhack0719-dev-20190706154809-authRole",
+			"UnauthRoleArn": "arn:aws:iam::122264674245:role/angelhack0719-dev-20190706154809-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::122264674245:role/angelhack0719-dev-20190706154809-authRole",
+			"Region": "ap-southeast-1",
+			"DeploymentBucketName": "angelhack0719-dev-20190706154809-deployment",
+			"UnauthRoleName": "angelhack0719-dev-20190706154809-unauthRole",
+			"StackName": "angelhack0719-dev-20190706154809",
+			"StackId": "arn:aws:cloudformation:ap-southeast-1:122264674245:stack/angelhack0719-dev-20190706154809/65f2bef0-9fc2-11e9-b806-064b1a6199c8"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"S3BucketSecureURL": "https://ngelack0719-20190706155030-hostingbucket-dev.s3.amazonaws.com",
+				"WebsiteURL": "http://ngelack0719-20190706155030-hostingbucket-dev.s3-website-ap-southeast-1.amazonaws.com",
+				"Region": "ap-southeast-1",
+				"HostingBucketName": "ngelack0719-20190706155030-hostingbucket-dev"
+			},
+			"lastPushTimeStamp": "2019-07-06T08:48:12.122Z",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			}
+		}
+	},
+	"function": {
+		"angelhack": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [
+				{
+					"category": "hosting",
+					"resourceName": "S3AndCloudFront",
+					"attributes": [
+						"HostingBucketName"
+					]
+				}
+			],
+			"lastBuildTimeStamp": "2019-07-06T08:30:53.610Z",
+			"lastPackageTimeStamp": "2019-07-06T08:30:54.441Z",
+			"distZipFilename": "angelhack-344e6742546873493339-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/function/angelhack-cloudformation-template.json",
+				"logicalId": "functionangelhack"
+			},
+			"lastPushTimeStamp": "2019-07-06T08:48:12.124Z",
+			"output": {
+				"Region": "ap-southeast-1",
+				"Arn": "arn:aws:lambda:ap-southeast-1:122264674245:function:getChannels-dev",
+				"Name": "getChannels-dev"
+			},
+			"lastPushDirHash": "pWOivJj1eh2ZIqjq+7onKGu4FTQ="
+		}
+	},
+	"api": {
+		"angelhack": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "angelhack",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/api/angelhack-cloudformation-template.json",
+				"logicalId": "apiangelhack"
+			},
+			"lastPushTimeStamp": "2019-07-06T08:48:12.124Z",
+			"output": {
+				"ApiName": "angelhack",
+				"RootUrl": "https://r1aezcqi2l.execute-api.ap-southeast-1.amazonaws.com/dev"
+			},
+			"lastPushDirHash": "YFA8SNlnyXNB3dmwdsEXoYA2w3Y="
+		}
+	}
+}

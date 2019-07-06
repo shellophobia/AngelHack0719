@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/channels",
+            "lambdaFunction": "angelhack",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "angelhack",
+    "apiName": "angelhack",
+    "functionArns": [
+        {
+            "lambdaFunction": "angelhack"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "angelhack0719-dev-20190706154809-authRole",
+        "unAuthRoleName": "angelhack0719-dev-20190706154809-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "angelhack",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
