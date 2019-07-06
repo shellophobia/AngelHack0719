@@ -70,7 +70,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "angelhack0719-dev-20190706154809-deployment",
-					"S3Key": "amplify-builds/angelhack-344e6742546873493339-build.zip"
+					"S3Key": "amplify-builds/angelhack-537330654e61542b302b-build.zip"
 				}
 			}
 		},

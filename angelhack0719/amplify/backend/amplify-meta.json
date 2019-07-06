@@ -21,7 +21,7 @@
 				"Region": "ap-southeast-1",
 				"HostingBucketName": "ngelack0719-20190706155030-hostingbucket-dev"
 			},
-			"lastPushTimeStamp": "2019-07-06T08:48:12.122Z",
+			"lastPushTimeStamp": "2019-07-06T12:27:53.240Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
@@ -43,19 +43,19 @@
 				}
 			],
 			"lastBuildTimeStamp": "2019-07-06T08:30:53.610Z",
-			"lastPackageTimeStamp": "2019-07-06T08:30:54.441Z",
-			"distZipFilename": "angelhack-344e6742546873493339-build.zip",
+			"lastPackageTimeStamp": "2019-07-06T12:26:51.641Z",
+			"distZipFilename": "angelhack-537330654e61542b302b-build.zip",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/function/angelhack-cloudformation-template.json",
 				"logicalId": "functionangelhack"
 			},
-			"lastPushTimeStamp": "2019-07-06T08:48:12.124Z",
+			"lastPushTimeStamp": "2019-07-06T12:27:53.243Z",
 			"output": {
 				"Region": "ap-southeast-1",
 				"Arn": "arn:aws:lambda:ap-southeast-1:122264674245:function:getChannels-dev",
 				"Name": "getChannels-dev"
 			},
-			"lastPushDirHash": "pWOivJj1eh2ZIqjq+7onKGu4FTQ="
+			"lastPushDirHash": "Lwlu+2HstXWwtdQmX729fILHH/g="
 		}
 	},
 	"api": {
@@ -76,7 +76,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/api/angelhack-cloudformation-template.json",
 				"logicalId": "apiangelhack"
 			},
-			"lastPushTimeStamp": "2019-07-06T08:48:12.124Z",
+			"lastPushTimeStamp": "2019-07-06T12:27:53.242Z",
 			"output": {
 				"ApiName": "angelhack",
 				"RootUrl": "https://r1aezcqi2l.execute-api.ap-southeast-1.amazonaws.com/dev"
