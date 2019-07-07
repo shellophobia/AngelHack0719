@@ -8,14 +8,30 @@ import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import PermPhoneMsg from '@material-ui/icons/PermPhoneMsg';
+import SendIcon from '@material-ui/icons/SendRounded';
+import FullscreenIcon from '@material-ui/icons/Fullscreen';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 export default function ChatBox(props) {
   const classes = props.classes;
   return (
     <div>
-          <AppBar position="static">
-            <Toolbar>General</Toolbar>
-          </AppBar>
+      {props.hasClose &&
+        <div style={{position:'absolute', top: '-20px', right: '-20px'}} onClick={() => props.setPodOpen(false)}>
+          <IconButton className={classes.iconButton} aria-label="Phone">
+            <CancelIcon />
+          </IconButton>
+        </div>
+      }
+      <AppBar position="static">
+        <Toolbar>General</Toolbar>
+      </AppBar>
+      <div style={{height: '300px', overflow:'scroll'}}>
+        <div>
           <List className={classes.rootList}>
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
@@ -168,6 +184,28 @@ export default function ChatBox(props) {
               />
             </ListItem>
           </List>
-          </div>
+        </div>
+      </div>
+      <Paper className={classes.chatInput}>
+        <InputBase
+          className={classes.input}
+          placeholder="What's on your mind?"
+          inputProps={{ 'aria-label': "What's on your mind?" }}
+        />
+        <IconButton className={classes.iconButton} aria-label="Send">
+          <SendIcon />
+        </IconButton>
+        <Divider className={classes.divider} />
+        <IconButton className={classes.iconButton} aria-label="Phone">
+          <PermPhoneMsg />
+        </IconButton>
+        {props.hasClose &&
+          [<Divider className={classes.divider} />,
+          <IconButton className={classes.iconButton} aria-label="Phone">
+            <FullscreenIcon />
+          </IconButton>]
+        }
+      </Paper>
+    </div>
   )
 }

@@ -20,6 +20,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    height: 'calc(100vh - 60px)',
   },
   drawer: {
     width: drawerWidth,
@@ -49,7 +50,24 @@ const useStyles = makeStyles(theme => ({
     lineHeight: '1.3',
     whiteSpace: 'pre-wrap',
     wordWrap: 'break-word',
-  }
+  },
+  chatInput: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  input: {
+    marginLeft: 8,
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+  divider: {
+    width: 1,
+    height: 28,
+    margin: 4,
+  },
 }));
 
 const openTopics = [
@@ -97,6 +115,7 @@ const UserChannels = () => {
           }}
         >
           <div style={{display: 'flex', alignItems: 'center', padding: '0 8px', justifyContent: 'flex-end'}}>
+            KLAT
             <IconButton onClick={handleDrawerClose}>
               <ChevronLeftIcon />
             </IconButton>
@@ -124,6 +143,7 @@ const UserChannels = () => {
           className={clsx(classes.content, {
             [classes.contentShift]: open,
           })}
+          style={{height: '100%'}}
         >
         {currIndex === 0 && (
           <div className={classes.markup}>

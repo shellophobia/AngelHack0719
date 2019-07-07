@@ -4,8 +4,10 @@ import {times} from 'lodash';
 import ChatBox from './ChatBox';
 
 const TopicPods = (props) => {
+  const [podOpen, setPodOpen] = React.useState(false);
+
   const handlePodClick = (index) => {
-    console.log(index)
+    setPodOpen(true);
   };
 
   return (
@@ -15,9 +17,11 @@ const TopicPods = (props) => {
           <div className={`pod pod${(index+1)}`} key={`pod${index}`} onClick={() => handlePodClick(index)} />
         ))
       }
+      {podOpen &&
       <div className="chatbox_wrapper">
-        <ChatBox classes={props.classes} />
+        <ChatBox classes={props.classes} hasClose setPodOpen={setPodOpen} />
       </div>
+      }
     </div>
   )
 }
