@@ -1,11 +1,11 @@
 import React from 'react';
-import Amplify, { API } from 'aws-amplify';
+// import Amplify, { API } from 'aws-amplify';
 import { BrowserRouter } from 'react-router-dom';
-import awsconfig from './aws-exports';
+// import awsconfig from './aws-exports';
 import AppRouter from './AppRouter';
 import './App.css';
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 function App() {
   const apiName = 'angelhack';
