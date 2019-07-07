@@ -10,6 +10,11 @@
   cursor: pointer;
 }
 
+.pod .MuiBadge-badge {
+  top: 5px;
+  right: 10px;
+}
+
 .pod1 {
   top: 20px;
   left: 50%;
