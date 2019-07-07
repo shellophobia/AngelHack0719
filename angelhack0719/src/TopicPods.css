@@ -126,3 +126,9 @@
   border-radius: 5px;
   left: 23%;
 }
+
+.roomName {
+  position: absolute;
+  bottom: -35px;
+  width: 150px;
+}

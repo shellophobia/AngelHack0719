@@ -14,15 +14,15 @@
         },
     
     
-          "functionangelhackName": {
+          "functionroomsListName": {
             "Type": "String",
-            "Default": "functionangelhackName"
+            "Default": "functionroomsListName"
           },
         
           
-          "functionangelhackArn": {
+          "functionroomsListArn": {
             "Type": "String",
-            "Default": "functionangelhackArn"
+            "Default": "functionroomsListArn"
           }
         
           
@@ -42,16 +42,16 @@
     "Resources": {
         
         
-      "angelhack": {
+      "roomsList": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "angelhack",
+          "Name": "roomsList",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "angelhack"
+              "title": "roomsList"
             },
             "host": {
                 "Fn::Join": [
@@ -173,7 +173,7 @@
                             
                             {
                                 
-                                "Ref": "functionangelhackArn"
+                                "Ref": "functionroomsListArn"
                             },
                             
                             "/invocations"
@@ -272,7 +272,7 @@
                           
                           {
                             
-                            "Ref": "functionangelhackArn"
+                            "Ref": "functionroomsListArn"
                           },
                           
                           "/invocations"
@@ -329,12 +329,12 @@
                   
         
         
-        "functionangelhackPermissionangelhack": {
+        "functionroomsListPermissionroomsList": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionangelhackName"
+                        "Ref":  "functionroomsListName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -353,7 +353,7 @@
                             },
                             ":",
                             {
-                                "Ref": "angelhack"
+                                "Ref": "roomsList"
                             },
                             "/*/*/*"
                         ]
@@ -364,7 +364,7 @@
         
         
         
-      "DeploymentAPIGWangelhack": {
+      "DeploymentAPIGWroomsList": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -378,7 +378,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "angelhack"
+            "Ref": "roomsList"
           }
         }
       }
@@ -386,11 +386,11 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "angelhack"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "roomsList"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "angelhack"
+          "Value": "roomsList"
         }
     }
   }

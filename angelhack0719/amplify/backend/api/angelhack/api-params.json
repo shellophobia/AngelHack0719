@@ -1,7 +1,7 @@
 {
     "paths": [
         {
-            "name": "/channels",
+            "name": "/topics/rooms",
             "lambdaFunction": "angelhack",
             "privacy": {
                 "open": true

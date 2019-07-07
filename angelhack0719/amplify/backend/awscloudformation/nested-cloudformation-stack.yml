@@ -103,6 +103,15 @@
 				}
 			}
 		},
+		"functionroomsList": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/function/roomsList-cloudformation-template.json",
+				"Parameters": {
+					"env": "dev"
+				}
+			}
+		},
 		"apiangelhack": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
@@ -123,6 +132,60 @@
 					"functionangelhackArn": {
 						"Fn::GetAtt": [
 							"functionangelhack",
+							"Outputs.Arn"
+						]
+					},
+					"env": "dev"
+				}
+			}
+		},
+		"apiroomList": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/api/roomList-cloudformation-template.json",
+				"Parameters": {
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"functionangelhackName": {
+						"Fn::GetAtt": [
+							"functionangelhack",
+							"Outputs.Name"
+						]
+					},
+					"functionangelhackArn": {
+						"Fn::GetAtt": [
+							"functionangelhack",
+							"Outputs.Arn"
+						]
+					},
+					"env": "dev"
+				}
+			}
+		},
+		"apiroomsList": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/api/roomsList-cloudformation-template.json",
+				"Parameters": {
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"functionroomsListName": {
+						"Fn::GetAtt": [
+							"functionroomsList",
+							"Outputs.Name"
+						]
+					},
+					"functionroomsListArn": {
+						"Fn::GetAtt": [
+							"functionroomsList",
 							"Outputs.Arn"
 						]
 					},

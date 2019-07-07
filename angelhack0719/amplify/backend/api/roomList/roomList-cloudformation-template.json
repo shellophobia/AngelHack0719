@@ -42,16 +42,16 @@
     "Resources": {
         
         
-      "angelhack": {
+      "roomList": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "angelhack",
+          "Name": "roomList",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "angelhack"
+              "title": "roomList"
             },
             "host": {
                 "Fn::Join": [
@@ -329,7 +329,7 @@
                   
         
         
-        "functionangelhackPermissionangelhack": {
+        "functionangelhackPermissionroomList": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
@@ -353,7 +353,7 @@
                             },
                             ":",
                             {
-                                "Ref": "angelhack"
+                                "Ref": "roomList"
                             },
                             "/*/*/*"
                         ]
@@ -364,7 +364,7 @@
         
         
         
-      "DeploymentAPIGWangelhack": {
+      "DeploymentAPIGWroomList": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -378,7 +378,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "angelhack"
+            "Ref": "roomList"
           }
         }
       }
@@ -386,11 +386,11 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "angelhack"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "roomList"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "angelhack"
+          "Value": "roomList"
         }
     }
   }

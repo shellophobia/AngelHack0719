@@ -8,8 +8,8 @@
             }
         }
     ],
-    "resourceName": "angelhack",
-    "apiName": "angelhack",
+    "resourceName": "roomList",
+    "apiName": "roomList",
     "functionArns": [
         {
             "lambdaFunction": "angelhack"

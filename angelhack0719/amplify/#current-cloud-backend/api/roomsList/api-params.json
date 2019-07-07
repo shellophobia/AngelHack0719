@@ -2,17 +2,17 @@
     "paths": [
         {
             "name": "/topics/rooms",
-            "lambdaFunction": "angelhack",
+            "lambdaFunction": "roomsList",
             "privacy": {
                 "open": true
             }
         }
     ],
-    "resourceName": "angelhack",
-    "apiName": "angelhack",
+    "resourceName": "roomsList",
+    "apiName": "roomsList",
     "functionArns": [
         {
-            "lambdaFunction": "angelhack"
+            "lambdaFunction": "roomsList"
         }
     ],
     "privacy": {
@@ -24,7 +24,7 @@
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "angelhack",
+            "resourceName": "roomsList",
             "attributes": [
                 "Name",
                 "Arn"

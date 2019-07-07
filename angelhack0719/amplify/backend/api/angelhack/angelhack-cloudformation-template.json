@@ -87,7 +87,7 @@
             ],
             "paths": {
               
-              "/channels": {
+              "/topics/rooms": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -186,7 +186,7 @@
                   }
                 }
               },
-              "/channels/{proxy+}": {
+              "/topics/rooms/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"

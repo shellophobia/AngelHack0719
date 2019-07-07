@@ -17,6 +17,8 @@ import SendIcon from '@material-ui/icons/SendRounded';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import CancelIcon from '@material-ui/icons/Cancel';
 import {getToken, disconnectCall} from './CallHelper';
+import Button from '@material-ui/core/Button';
+
 
 export default function ChatBox(props) {
   const classes = props.classes;
@@ -34,7 +36,7 @@ export default function ChatBox(props) {
   return (
     <div>
       {props.hasClose &&
-        <div style={{position:'absolute', top: '-20px', right: '-20px'}} onClick={() => props.setPodOpen(false)}>
+        <div style={{position:'absolute', top: '-20px', right: '-20px'}} onClick={props.setPodOpen}>
           <IconButton className={classes.iconButton} aria-label="Phone">
             <CancelIcon />
           </IconButton>
@@ -199,32 +201,69 @@ export default function ChatBox(props) {
           </List>
         </div>
       </div>
-      <Paper className={classes.chatInput}>
-        <InputBase
-          className={classes.input}
-          placeholder="What's on your mind?"
-          inputProps={{ 'aria-label': "What's on your mind?" }}
-        />
-        <IconButton className={classes.iconButton} aria-label="Send">
-          <SendIcon />
-        </IconButton>
-        <Divider className={classes.divider} />
-        {callActive ? (
-          <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleHangup}>
-            <CallEndIcon />
-          </IconButton>) : (
-            <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleCall}>
-              <CallIcon />
-            </IconButton>
-          )
-        }
-        {props.hasClose &&
-          [<Divider className={classes.divider} />,
-          <IconButton className={classes.iconButton} aria-label="Phone">
-            <FullscreenIcon />
-          </IconButton>]
-        }
-      </Paper>
+      {props.hasClose ? (
+        <div>
+        {props.joined ? (
+          <Paper className={classes.chatInput}>
+          <InputBase
+            className={classes.input}
+            placeholder="What's on your mind?"
+            inputProps={{ 'aria-label': "What's on your mind?" }}
+          />
+          <IconButton className={classes.iconButton} aria-label="Send">
+            <SendIcon />
+          </IconButton>
+          <Divider className={classes.divider} />
+          {callActive ? (
+            <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleHangup}>
+              <CallEndIcon />
+            </IconButton>) : (
+              <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleCall}>
+                <CallIcon />
+              </IconButton>
+            )
+          }
+          {props.hasClose &&
+            [<Divider className={classes.divider} />,
+            <IconButton className={classes.iconButton} aria-label="Phone">
+              <FullscreenIcon />
+            </IconButton>]
+          }
+          </Paper>
+        ): (
+          <Button variant="contained" color="primary" style={{width: '100%'}} onClick={props.joinRoom}>
+            Join Room
+          </Button>
+        )}
+  </div>
+      ):(
+        <Paper className={classes.chatInput}>
+          <InputBase
+            className={classes.input}
+            placeholder="What's on your mind?"
+            inputProps={{ 'aria-label': "What's on your mind?" }}
+          />
+          <IconButton className={classes.iconButton} aria-label="Send">
+            <SendIcon />
+          </IconButton>
+          <Divider className={classes.divider} />
+          {callActive ? (
+            <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleHangup}>
+              <CallEndIcon />
+            </IconButton>) : (
+              <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleCall}>
+                <CallIcon />
+              </IconButton>
+            )
+          }
+          {props.hasClose &&
+            [<Divider className={classes.divider} />,
+            <IconButton className={classes.iconButton} aria-label="Phone">
+              <FullscreenIcon />
+            </IconButton>]
+          }
+        </Paper>
+      )}
     </div>
   )
 }

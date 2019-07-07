@@ -21,7 +21,7 @@
 				"Region": "ap-southeast-1",
 				"HostingBucketName": "ngelack0719-20190706155030-hostingbucket-dev"
 			},
-			"lastPushTimeStamp": "2019-07-06T12:27:53.240Z",
+			"lastPushTimeStamp": "2019-07-07T03:39:19.984Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/hosting/template.json",
 				"logicalId": "hostingS3AndCloudFront"
@@ -49,13 +49,32 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/function/angelhack-cloudformation-template.json",
 				"logicalId": "functionangelhack"
 			},
-			"lastPushTimeStamp": "2019-07-06T12:27:53.243Z",
+			"lastPushTimeStamp": "2019-07-07T03:39:19.989Z",
 			"output": {
 				"Region": "ap-southeast-1",
 				"Arn": "arn:aws:lambda:ap-southeast-1:122264674245:function:getChannels-dev",
 				"Name": "getChannels-dev"
 			},
 			"lastPushDirHash": "Lwlu+2HstXWwtdQmX729fILHH/g="
+		},
+		"roomsList": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"lastBuildTimeStamp": "2019-07-07T03:35:45.384Z",
+			"lastPackageTimeStamp": "2019-07-07T03:38:18.762Z",
+			"distZipFilename": "roomsList-667a59687a344c564436-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/function/roomsList-cloudformation-template.json",
+				"logicalId": "functionroomsList"
+			},
+			"lastPushTimeStamp": "2019-07-07T03:39:19.994Z",
+			"output": {
+				"Region": "ap-southeast-1",
+				"Arn": "arn:aws:lambda:ap-southeast-1:122264674245:function:roomsList-dev",
+				"Name": "roomsList-dev"
+			},
+			"lastPushDirHash": "XVEzebzcHpmajxOI7469seduhyo="
 		}
 	},
 	"api": {
@@ -76,12 +95,60 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/api/angelhack-cloudformation-template.json",
 				"logicalId": "apiangelhack"
 			},
-			"lastPushTimeStamp": "2019-07-06T12:27:53.242Z",
+			"lastPushTimeStamp": "2019-07-07T03:39:19.990Z",
 			"output": {
 				"ApiName": "angelhack",
 				"RootUrl": "https://r1aezcqi2l.execute-api.ap-southeast-1.amazonaws.com/dev"
 			},
-			"lastPushDirHash": "YFA8SNlnyXNB3dmwdsEXoYA2w3Y="
+			"lastPushDirHash": "icn4pLVxDOpQhUjO5YW+sd0eJuA="
+		},
+		"roomList": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "angelhack",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/api/roomList-cloudformation-template.json",
+				"logicalId": "apiroomList"
+			},
+			"lastPushTimeStamp": "2019-07-07T03:39:19.993Z",
+			"output": {
+				"ApiName": "roomList",
+				"RootUrl": "https://77b6tp89bg.execute-api.ap-southeast-1.amazonaws.com/dev"
+			},
+			"lastPushDirHash": "WrFQ9A9JjGrORCwFf2gQVARTtCs="
+		},
+		"roomsList": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "roomsList",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/angelhack0719-dev-20190706154809-deployment/amplify-cfn-templates/api/roomsList-cloudformation-template.json",
+				"logicalId": "apiroomsList"
+			},
+			"lastPushTimeStamp": "2019-07-07T03:39:19.993Z",
+			"output": {
+				"ApiName": "roomsList",
+				"RootUrl": "https://s5z2l26g3i.execute-api.ap-southeast-1.amazonaws.com/dev"
+			},
+			"lastPushDirHash": "c9vmdyT5axzKbY3rIkg/icqQgoc="
 		}
 	}
 }
