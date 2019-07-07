@@ -11,13 +11,26 @@ import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
-import PermPhoneMsg from '@material-ui/icons/PermPhoneMsg';
+import CallIcon from '@material-ui/icons/Call';
+import CallEndIcon from '@material-ui/icons/CallEnd';
 import SendIcon from '@material-ui/icons/SendRounded';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import CancelIcon from '@material-ui/icons/Cancel';
+import {getToken, disconnectCall} from './CallHelper';
 
 export default function ChatBox(props) {
   const classes = props.classes;
+  const [callActive, setCallActive] = React.useState(false);
+  const handleCall = () => {
+    setCallActive(true);
+    getToken();
+  }
+
+  function handleHangup() {
+    setCallActive(false);
+    disconnectCall();
+  }
+
   return (
     <div>
       {props.hasClose &&
@@ -196,9 +209,15 @@ export default function ChatBox(props) {
           <SendIcon />
         </IconButton>
         <Divider className={classes.divider} />
-        <IconButton className={classes.iconButton} aria-label="Phone">
-          <PermPhoneMsg />
-        </IconButton>
+        {callActive ? (
+          <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleHangup}>
+            <CallEndIcon />
+          </IconButton>) : (
+            <IconButton className={classes.iconButton} aria-label="Phone" onClick={handleCall}>
+              <CallIcon />
+            </IconButton>
+          )
+        }
         {props.hasClose &&
           [<Divider className={classes.divider} />,
           <IconButton className={classes.iconButton} aria-label="Phone">
